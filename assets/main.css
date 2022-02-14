@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 65.5%;
+    /* 65.5% = 1rem = 10px */
+}
+body{
+    color: white;
+    background-color: black;
+}
+.container{
+    /* border: 2px solid white; */
+    width: 57rem;
+    margin-top: 58rem;
+    margin-left: 142rem;
+    display: grid;
+    grid-template-columns:19rem 19rem 19rem;
+    grid-template-rows: 19rem 19rem 19rem;
+}
+.secondcol, .fifthcol, .eightcol{
+    border: 2px solid;
+    border-top: none;
+}
+.eightcol{
+    border-bottom: none;
+}
+.forthcol, .sixthcol{
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+}
+.zeroIcn, .closeIcn{
+    height: 100%;
+    display: none;
+}
+.zeroIcn img, .closeIcn img{
+    width: 100%;
+}
+.show{
+    display: block;
+}
