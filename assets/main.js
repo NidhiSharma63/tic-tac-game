@@ -1,19 +1,25 @@
 
-
 let container = document.querySelector(".container");
 let items = document.querySelectorAll(".item");
+let declare = document.getElementById("declare")
 const space = [];
-const tick_zero = "0";
-const tick_cross = "x";
-let current_player = tick_zero;
-items.forEach(function (item) {
- item.addEventListener("click",function(e){
-  let id = e.target.dataset.id;
-  if(!space[id]){
-    e.target.innerHTML=current_player
-  }
- })
-  
+let turn="x";
+// items.forEach(function (item) {
+//   item.addEventListener("click", function (e) {
+//   });
+// });
+// function to change the turn
 
-})
-// make the border using js
+const changeTurn=()=>{
+  return turn === "x" ? "0": "x"
+}
+items.forEach(function (item) {
+  item.addEventListener("click", function (e) {
+    if(e.target.innerText===''){
+      e.target.innerText=turn;
+    turn = changeTurn();
+
+  console.log(e.target.innerText)
+    }
+  });
+});
