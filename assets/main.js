@@ -93,6 +93,9 @@ items.forEach(function (item) {
         setTimeout(() => {
           items.forEach(function(item){
             item.innerText=''
+            declare.innerText=''
+            currentTarget.innerText=''
+            gameover=false
           })
         }, 1000);
       }
