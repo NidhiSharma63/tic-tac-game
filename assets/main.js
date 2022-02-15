@@ -2,7 +2,6 @@
 let container = document.querySelector(".container");
 let items = document.querySelectorAll(".item");
 let declare = document.getElementById("declare")
-const space = [];
 let turn = "x";
 let gameover = false;
 
@@ -20,7 +19,6 @@ const winnerFunction = (board) => {
   ) {
     gameover=true
     declare.innerText=`you win`
-    // return true;
   }
 
   if ((container.children[4].innerText === "x") && (container.children[3].innerText === "x") && (container.children[5].innerText === "x")
@@ -29,7 +27,6 @@ const winnerFunction = (board) => {
   ) {
     gameover=true
     declare.innerText=`you win`
-    // return true;
   }
   if ((container.children[8].innerText === "x") && (container.children[6].innerText === "x") && (container.children[7].innerText === "x")
   ||(container.children[8].innerText === "x") && (container.children[5].innerText === "x") && (container.children[2].innerText === "x")
@@ -37,6 +34,10 @@ const winnerFunction = (board) => {
     gameover=true
     declare.innerText=`you win`
   }
+}
+
+// draw function
+const drawfunction = () =>{
 
 }
 items.forEach(function (item) {
@@ -46,6 +47,14 @@ items.forEach(function (item) {
       currentTarget.innerText = turn;
       turn = changeTurn();
       winnerFunction(); 
+      // !gameover==>gamover is false
+      if(gameover){
+        setTimeout(() => {
+          items.forEach(function(item){
+            item.innerText=''
+          })
+        }, 1000);
+      }
     }
   });
 });
