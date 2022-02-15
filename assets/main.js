@@ -12,13 +12,13 @@ const changeTurn = () => {
 }
 
 // function to makeWinner
-const winnerFunction = (board) => {
+const winnerFunctionX = () => {
   if ((container.children[0].innerText === "x") && (container.children[1].innerText === "x") && (container.children[2].innerText === "x")
   ||(container.children[0].innerText === "x") && (container.children[3].innerText === "x") && (container.children[6].innerText === "x")
   ||(container.children[0].innerText === "x") && (container.children[4].innerText === "x") && (container.children[8].innerText === "x")
   ) {
     gameover=true
-    declare.innerText=`you win`
+    declare.innerText=`you win x`
   }
 
   if ((container.children[4].innerText === "x") && (container.children[3].innerText === "x") && (container.children[5].innerText === "x")
@@ -26,19 +26,39 @@ const winnerFunction = (board) => {
   ||(container.children[4].innerText === "x") && (container.children[2].innerText === "x") && (container.children[6].innerText === "x")
   ) {
     gameover=true
-    declare.innerText=`you win`
+    declare.innerText=`you win x`
   }
   if ((container.children[8].innerText === "x") && (container.children[6].innerText === "x") && (container.children[7].innerText === "x")
   ||(container.children[8].innerText === "x") && (container.children[5].innerText === "x") && (container.children[2].innerText === "x")
   ) {
     gameover=true
-    declare.innerText=`you win`
+    declare.innerText=`you win x`
   }
 }
 
 // draw function
-const drawfunction = () =>{
+const winnerFunction0 = () =>{
+  if ((container.children[0].innerText === "0") && (container.children[1].innerText === "0") && (container.children[2].innerText === "0")
+  ||(container.children[0].innerText === "0") && (container.children[3].innerText === "0") && (container.children[6].innerText === "0")
+  ||(container.children[0].innerText === "0") && (container.children[4].innerText === "0") && (container.children[8].innerText === "0")
+  ) {
+    gameover=true
+    declare.innerText=`you win 0`
+  }
 
+  if ((container.children[4].innerText === "0") && (container.children[3].innerText === "0") && (container.children[5].innerText === "0")
+  ||(container.children[4].innerText === "0") && (container.children[1].innerText === "0") && (container.children[7].innerText === "0")
+  ||(container.children[4].innerText === "0") && (container.children[2].innerText === "0") && (container.children[6].innerText === "0")
+  ) {
+    gameover=true
+    declare.innerText=`you win 0`
+  }
+  if ((container.children[8].innerText === "0") && (container.children[6].innerText === "0") && (container.children[7].innerText === "0")
+  ||(container.children[8].innerText === "0") && (container.children[5].innerText === "0") && (container.children[2].innerText === "0")
+  ) {
+    gameover=true
+    declare.innerText=`you win 0`
+  }
 }
 items.forEach(function (item) {
   item.addEventListener("click", function (e) {
@@ -46,7 +66,8 @@ items.forEach(function (item) {
     if (currentTarget.innerText === '') {
       currentTarget.innerText = turn;
       turn = changeTurn();
-      winnerFunction(); 
+      winnerFunctionX(); 
+      winnerFunction0();
       // !gameover==>gamover is false
       if(gameover){
         setTimeout(() => {
