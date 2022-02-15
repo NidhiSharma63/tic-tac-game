@@ -60,6 +60,25 @@ const winnerFunction0 = () =>{
     declare.innerText=`you win 0`
   }
 }
+// draw function
+const Drawfunction = () =>{
+  if ((container.children[4].innerText === "0") && (container.children[0].innerText === "0") && (container.children[2].innerText === "0")
+  ||(container.children[6].innerText === "0") && (container.children[4].innerText === "0") && (container.children[8].innerText === "0")
+  ||(container.children[4].innerText === "0") && (container.children[0].innerText === "0") && (container.children[6].innerText === "0")
+  ||(container.children[4].innerText === "0") && (container.children[2].innerText === "0") && (container.children[8].innerText === "0")
+  ) {
+    gameover=true
+    declare.innerText=`game will be tie`
+  }
+  if ((container.children[4].innerText === "x") && (container.children[0].innerText === "x") && (container.children[2].innerText === "x")
+  ||(container.children[6].innerText === "x") && (container.children[4].innerText === "x") && (container.children[8].innerText === "x")
+  ||(container.children[4].innerText === "x") && (container.children[0].innerText === "x") && (container.children[6].innerText === "x")
+  ||(container.children[4].innerText === "x") && (container.children[2].innerText === "x") && (container.children[8].innerText === "x")
+  ) {
+    gameover=true
+    declare.innerText=`game will be tie`
+  }
+}
 items.forEach(function (item) {
   item.addEventListener("click", function (e) {
     let currentTarget = e.target;
@@ -68,6 +87,7 @@ items.forEach(function (item) {
       turn = changeTurn();
       winnerFunctionX(); 
       winnerFunction0();
+      Drawfunction();
       // !gameover==>gamover is false
       if(gameover){
         setTimeout(() => {
